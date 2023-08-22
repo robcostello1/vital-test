@@ -70,7 +70,7 @@ const PanelForm = ({ isOpen, onClose, onSubmit }: PanelFormProps) => {
               </FormControl>
 
               <FormControl isInvalid={!!errors.markers}>
-                <FormLabel htmlFor="markers">Markers</FormLabel>
+                <FormLabel htmlFor="markers">Biomarkers</FormLabel>
                 <MarkersSelect
                   id="markers"
                   values={selectedMarkers}

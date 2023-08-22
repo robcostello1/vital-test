@@ -60,7 +60,7 @@ describe("PanelForm", () => {
       await screen.findByRole("textbox", { name: "Name" }),
       "test name"
     );
-    await userEvent.click(screen.getByRole("textbox", { name: "Markers" }));
+    await userEvent.click(screen.getByRole("textbox", { name: "Biomarkers" }));
     await userEvent.selectOptions(
       screen.getByRole("combobox", { name: "Collection method" }),
       ["Test kit"]

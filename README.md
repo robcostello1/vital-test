@@ -57,6 +57,7 @@ I spent longer than I intended on this task - around 7 hours. The alternative se
 - - I haven't tested static components like PanelCard as these are pretty much covered by type checking.
 - - I've tried to avoid testing implementations of 3rd party components, which is why I don't have a test for `useMarkers()` and why MarkersSelect is mocked. With correctly designed mocks it would be possible to write implementation-agnostic tests for these but that falls outside what was possible in the time.
 - Handling request failures in the API proxy.
+- It might not be fully clear that the next page of biomarkers is loaded asynchronously when you reach the bottom of the select list. A loading indicator would be useful here.
 
 There are also some smaller TODOs in the codebase which I'm happy to discuss.
 
@@ -65,3 +66,12 @@ There are also some smaller TODOs in the codebase which I'm happy to discuss.
 The main reason for the overspend was the implementation of the server-side marker filtering functionality. This was not included in the spec but the client-side filtering had a major limitation: the filtered marker list would be incomplete if the user had not scrolled all the way to the bottom of marker list.
 
 You can enable this functionality in `utils/consts.ts` by updating `DEFAULT_MARKERS_SEARCH_STRATEGY`.
+
+## Feedback on API and docs
+
+The API functionality and docs were good, with just a few issues:
+
+The pagination metadata in the markers response is not as I would expect and required a workaround to disable the "next page" query when the user reaches the end of the list. The inclusion of an unpaginated total would be useful (`total` gives the total results for the current page, which isn't that useful). It would also be useful to have a `hasNextPage` or similar field.
+
+It's not that long a list so allowing the full list of markers to be returned at once would be useful, instead of limiting results to a maximum of 100.
+
