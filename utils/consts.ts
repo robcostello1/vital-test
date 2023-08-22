@@ -12,4 +12,4 @@ export const COLLECTION_METHODS: {
   { value: "at_home_phlebotomy", label: "At home phlebotomy" },
 ];
 
-export const DEFAULT_MARKERS_SEARCH_STRATEGY = "remote"; // Update to  "remote" for server-side search
+export const DEFAULT_MARKERS_SEARCH_STRATEGY: "local" | "remote" = "local"; // Update to  "remote" for server-side search

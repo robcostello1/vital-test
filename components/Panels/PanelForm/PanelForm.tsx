@@ -16,18 +16,13 @@ type PanelFormProps = {
   isOpen: boolean;
   onClose: () => void;
   // TODO remove ?
-  onSubmit?: (values: Panel) => void;
+  onSubmit: (values: Panel) => void;
 };
 
 /**
  * TODO "edit" implementation
  */
-const PanelForm = ({
-  isOpen,
-  onClose,
-  // TODO remove default
-  onSubmit = console.log,
-}: PanelFormProps) => {
+const PanelForm = ({ isOpen, onClose, onSubmit }: PanelFormProps) => {
   // Would use Formik or similar when form complexity increases
   const [name, setName] = useState("");
   const [selectedMarkers, setSelectedMarkers] = useState<Marker[]>([]);
@@ -75,7 +70,7 @@ const PanelForm = ({
               </FormControl>
 
               <FormControl isInvalid={!!errors.markers}>
-                <FormLabel htmlFor="markers">Select markers</FormLabel>
+                <FormLabel htmlFor="markers">Markers</FormLabel>
                 <MarkersSelect
                   id="markers"
                   values={selectedMarkers}

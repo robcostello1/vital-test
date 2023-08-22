@@ -25,9 +25,9 @@ const Panels = () => {
 
   const handleSubmit = useCallback(
     (panel: Panel) => {
-      setPanels((currentPanels = []) => [...currentPanels, panel]);
+      setPanels([...(panels || []), panel]);
     },
-    [setPanels]
+    [setPanels, panels]
   );
 
   // Clear the form after it's closed (including the animation)
@@ -43,14 +43,8 @@ const Panels = () => {
 
   return (
     <Box minHeight="100vh" bg="gray.100">
-      <VStack
-        py={10}
-        px={10}
-        height={"100vh"}
-        spacing={10}
-        alignItems={"flex-start"}
-      >
-        <Card variant="outline" p={5}>
+      <VStack py={10} px={10} spacing={10} alignItems={"flex-start"}>
+        <Card variant="outline" w={"100%"} p={5}>
           <CardHeader pb={0}>
             <Flex width={"100%"}>
               <Heading size={"md"}>Your Panels</Heading>

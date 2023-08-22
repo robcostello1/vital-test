@@ -38,8 +38,8 @@ const PanelCard = ({ name, markers, collectionMethod }: PanelCardProps) => {
         </Flex>
       </CardHeader>
       <CardBody>
-        {markers.map(({ name }, index) => (
-          <Badge key={index} mr={2}>
+        {markers.map(({ name, slug }) => (
+          <Badge key={slug} mr={2}>
             {name}
           </Badge>
         ))}

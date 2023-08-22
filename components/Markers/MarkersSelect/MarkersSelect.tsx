@@ -13,7 +13,7 @@ import { getMarkerSelectValue, noopFilter } from './utils';
 
 const DEFAULT_OPTIONS: Marker[] = [];
 
-export type MarkerSelectProps = {
+export type MarkersSelectProps = {
   id: string;
   values: Marker[];
   searchStrategy?: "local" | "remote";
@@ -29,13 +29,13 @@ export type MarkerSelectProps = {
  * if the user has not scrolled to the bottom of the list. I've implemented a "remote" search
  * option for better results.
  */
-const MarkerSelect = ({
+const MarkersSelect = ({
   id,
   values,
   searchStrategy = DEFAULT_MARKERS_SEARCH_STRATEGY,
   onChange,
   onError,
-}: MarkerSelectProps) => {
+}: MarkersSelectProps) => {
   const [search, setSearch] = useState("");
   const [nameSearch, setNameSearch] = useState("");
   useDebounce(() => setNameSearch(search), 500, [search]);
@@ -93,23 +93,21 @@ const MarkerSelect = ({
   );
 
   return (
-    <>
-      <Select
-        isMulti
-        inputId={id}
-        isDisabled={isError}
-        className={styles.root}
-        filterOption={searchStrategy === "remote" ? noopFilter : undefined}
-        defaultValue={values.map(getMarkerSelectValue)}
-        options={options.map(getMarkerSelectValue)}
-        noOptionsMessage={renderNoOptions}
-        onInputChange={setSearch}
-        formatOptionLabel={renderOptionLabel}
-        onChange={handleChange}
-        onMenuScrollToBottom={handleReachBottom}
-      />
-    </>
+    <Select
+      isMulti
+      inputId={id}
+      isDisabled={isError}
+      className={styles.root}
+      filterOption={searchStrategy === "remote" ? noopFilter : undefined}
+      defaultValue={values.map(getMarkerSelectValue)}
+      options={options.map(getMarkerSelectValue)}
+      noOptionsMessage={renderNoOptions}
+      onInputChange={setSearch}
+      formatOptionLabel={renderOptionLabel}
+      onChange={handleChange}
+      onMenuScrollToBottom={handleReachBottom}
+    />
   );
 };
 
-export default memo(MarkerSelect);
+export default memo(MarkersSelect) as typeof MarkersSelect;
