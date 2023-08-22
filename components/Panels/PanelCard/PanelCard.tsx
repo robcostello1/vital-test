@@ -1,4 +1,4 @@
-import { COLLECTION_METHODS } from '@/utils/consts';
+import { COLLECTION_METHODS_MAP } from '@/utils/consts';
 import { Panel } from '@/utils/types';
 import { EditIcon } from '@chakra-ui/icons';
 import {
@@ -15,12 +15,7 @@ const PanelCard = ({ name, markers, collectionMethod }: PanelCardProps) => {
           <div>
             <Heading size={"sm"}>{name}</Heading>
             <Text color="gray.500">
-              {
-                // TODO messy
-                COLLECTION_METHODS.find(
-                  ({ value }) => value === collectionMethod
-                )?.label
-              }
+              {COLLECTION_METHODS_MAP[collectionMethod]}
             </Text>
           </div>
           <Spacer />

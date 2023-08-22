@@ -15,12 +15,12 @@ import { getErrors, validates } from './utils';
 type PanelFormProps = {
   isOpen: boolean;
   onClose: () => void;
-  // TODO remove ?
   onSubmit: (values: Panel) => void;
 };
 
+// TODO "edit" implementation
 /**
- * TODO "edit" implementation
+ * Form for creating a new Panel.
  */
 const PanelForm = ({ isOpen, onClose, onSubmit }: PanelFormProps) => {
   // Would use Formik or similar when form complexity increases

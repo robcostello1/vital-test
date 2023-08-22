@@ -18,7 +18,7 @@ export type MarkersSelectProps = {
   values: Marker[];
   searchStrategy?: "local" | "remote";
   onChange: (values: Marker[]) => void;
-  // TODO error info
+  // TODO provide information on cause of API error
   onError: () => void;
 };
 

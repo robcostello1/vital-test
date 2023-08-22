@@ -49,7 +49,7 @@ Library for handling API queries that facilitates caching and handling paginated
 
 ## Time Spent and compromises
 
-I spent longer than I intended on this task - around 6 hours. Please see below for one part of this. There is some missing functionality for a full production-ready implementation:
+I spent longer than I intended on this task - around 7 hours. The alternative server-side marker filtering detailed below accounts for some of the overspend. For a full production-ready implementation I would additionally implement:
 
 - A search field for the panels list
 - Editing and deleting existing panels
@@ -58,7 +58,7 @@ I spent longer than I intended on this task - around 6 hours. Please see below f
 - - I've tried to avoid testing implementations of 3rd party components, which is why I don't have a test for `useMarkers()` and why MarkersSelect is mocked. With correctly designed mocks it would be possible to write implementation-agnostic tests for these but that falls outside what was possible in the time.
 - Handling request failures in the API proxy.
 
-There are some smaller TODOs in the codebase which I'm happy to discuss.
+There are also some smaller TODOs in the codebase which I'm happy to discuss.
 
 ## Server-side marker filtering
 
