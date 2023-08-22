@@ -2,7 +2,7 @@ import { COLLECTION_METHODS_MAP } from '@/utils/consts';
 import { Panel } from '@/utils/types';
 import { EditIcon } from '@chakra-ui/icons';
 import {
-    Badge, Card, CardBody, CardHeader, Flex, Heading, IconButton, Spacer, Text
+    Badge, Box, Card, CardBody, CardHeader, Flex, Heading, IconButton, Spacer, Text
 } from '@chakra-ui/react';
 
 type PanelCardProps = Panel;
@@ -11,13 +11,13 @@ const PanelCard = ({ name, markers, collectionMethod }: PanelCardProps) => {
   return (
     <Card variant="outline">
       <CardHeader pb={0}>
-        <Flex alignItems="flex-start" width={"100%"}>
-          <div>
+        <Flex alignItems="flex-start" width={"100%"} overflow="hidden">
+          <Box overflow="hidden">
             <Heading size={"sm"}>{name}</Heading>
             <Text color="gray.500">
               {COLLECTION_METHODS_MAP[collectionMethod]}
             </Text>
-          </div>
+          </Box>
           <Spacer />
           <IconButton
             mt={-1}
